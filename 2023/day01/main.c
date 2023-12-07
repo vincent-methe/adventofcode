@@ -4,18 +4,23 @@
 int find();
 
 int main() {
-	int total;
+	int total = 0;
+	char buffer[255];
 
 	FILE* fptr;
-	fptr = fopen("input2", "r");
+	fptr = fopen("input", "r");
 
-	if (fptr = NULL)
+	if (fptr == NULL) {
 		printf("Error opening file!");
-
- 	char buffer[100];
-	while (fgets(buffer, sizeof(buffer), fptr)) {
-		printf("%s", buffer);
+	} else {
+	 	while (fgets(buffer, sizeof(buffer), fptr)) {
+			total = total + find(buffer);
+			printf("Running total: %d,\n", total);
+		}
+		fclose(fptr);
 	}
+
+	printf("\nTotal: %d!\n", total);
 }
 
 int find(char str[]) {
@@ -44,7 +49,7 @@ int find(char str[]) {
 
 	num = (num_one - '0') * 10 + (num_two - '0');
 
-	printf("Number: %d\n", num);
+	printf("Temporary Result: %d,\n", num);
 
 	return num;
 }

@@ -13,7 +13,7 @@ int main() {
 	fptr = fopen("input", "r");
 
 	if (fptr == NULL) {
-		printf("Error opening file!");
+		printf("Error opening file!\n");
 	} else {
 	 	while (fgets(buffer, sizeof(buffer), fptr)) {
 			if (check(buffer)) {

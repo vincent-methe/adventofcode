@@ -53,11 +53,12 @@ int main()
 
 	fclose(fptr);
 	
-	// process the data
-	
+	// process the data starting at 'AAA'
+		
 	int current_node = find_aaa(nodes);
-	sleep(3);
 	int steps = 0;
+
+	// repeat the instructions until 'ZZZ' is reached
 
 	while(process_instructions(instructions, nodes, &current_node, &steps));
 
@@ -94,6 +95,8 @@ int scan(char str[], char arr[][3][3], int x)
 	}
 }
 
+// process_instructions goes through the steps stored in a string until the current node is 'ZZZ'
+
 int process_instructions(char str[], char arr[][3][3], int *current, int *steps)
 {
 	int i = 0;
@@ -117,8 +120,6 @@ int process_instructions(char str[], char arr[][3][3], int *current, int *steps)
 
 		(*steps)++;
 		
-		printf("CURRENT: %c%c%c\n", arr[*current][0][0], arr[*current][0][1], arr[*current][0][2]);
-
 		if (is_zzz(arr, *current))
 			return 0;
 
@@ -127,6 +128,8 @@ int process_instructions(char str[], char arr[][3][3], int *current, int *steps)
 	
 	return 1;
 }
+
+// find_node returns the index of the node that is found on either the left or right side of the current node
 
 int find_node(char arr[][3][3], int current, int side)
 {
@@ -143,6 +146,8 @@ int find_node(char arr[][3][3], int current, int side)
 	return 0;
 }
 
+// is_zzz checks if the current node is 'ZZZ'
+
 int is_zzz(char arr[][3][3], int current)
 {
 	if (arr[current][0][0] == 'Z' && arr[current][0][1] == 'Z' && arr[current][0][2] == 'Z')
@@ -150,6 +155,8 @@ int is_zzz(char arr[][3][3], int current)
 	else
 		return 0;
 }
+
+// find_aaa returns the index of the node for 'AAA'
 
 int find_aaa(char arr[][3][3])
 {

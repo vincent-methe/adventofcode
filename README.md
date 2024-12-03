@@ -5,7 +5,7 @@
 For the year 2023, I plan to solve the puzzles using:
 
 - C
-- C++
-- Haskell
-- Java
-- Python
+
+## 2024
+
+- Rust
